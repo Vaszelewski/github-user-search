@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const Navbar = () => (
-    <nav className="row bg-primary main-navbar">
-        <div className="col-4">
-            <Link to="/" className=" navbar-logo-text">
-                <h4>Bootcamp DevSuperior</h4>
+    <nav className="row main-navbar">
+        <div>
+            <Link to="/" className="navbar-logo-text">
+                Bootcamp DevSuperior
             </Link>
         </div>
     </nav>

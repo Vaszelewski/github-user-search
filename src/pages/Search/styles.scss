@@ -1,3 +1,9 @@
+.container-page{
+    position: relative;
+    background: #fff;
+    flex-direction: row;
+}
+
 .search-container{
     margin-top: 55px;
     margin-left: 90px;
@@ -7,7 +13,7 @@
 }
 
 .search-content{
-    padding:65px 480px 40px 95px;
+    padding: 65px 480px 40px 95px;
 }
 
 .search-title{
@@ -22,7 +28,7 @@
     height: 40px;
     font-size: 16px;
     padding: 8px 0 8px 17px;
-    color: #BFBFBF;
+    color: #000;
     line-height: 24px;
     
     background: #FFFFFF;
@@ -31,6 +37,93 @@
     border-radius: 4px;
 }
 
-.btn-spacing{
+.form-spacing{
     padding-top: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-result {
+    margin-top: 55px;
+    margin-left: 90px;
+    margin-right: 100px;
+    margin-bottom: 70px;
+    background: #F5F5F5;
+    border-radius: 8px;
+}
+
+
+
+.imageloader-position{
+    padding-left: 30px;
+    padding-top: 24px;
+    padding-bottom: 11px;
+    border-radius: 8px;
+}
+
+.image-position{
+    padding-left: 30px;
+    padding-top: 23px;
+    padding-bottom: 17px;
+}
+
+.infoloader-position {
+    padding-left: 362px;
+    padding-top: 24px;
+}
+
+.button-position {
+    padding-bottom: 27px;
+    padding-left: 30px;
+}
+
+.span1-position {
+    width: 163px;
+    height: 22px;
+    padding-top: 23px;
+    padding-left: 44px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    top: 23px;
+    left: 358px;
+    background: #FFF;
+    border: 1px solid #D9D9D9
+}
+
+.text-span1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #595959;
 }

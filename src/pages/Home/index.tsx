@@ -4,6 +4,7 @@ import ButtonIcon from '../../core/components/Buttonicon';
 import './styles.scss';
 
 const Home = () => (
+    
     <div className="home-content">
         <h1 className="text-title">
             Desafio do Capítulo 3, < br/> Bootcamp DevSuperior

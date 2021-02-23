@@ -1,12 +1,20 @@
 .main-navbar{
     height: 60px;
-    color: #fff;
     align-items: center;
     padding-left: 40px;
     margin-left: 0;
     margin-right: 0;
+    background: #1890FF;
 }
 
 .navbar-logo-text{
     color:#fff;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+
+.navbar-logo-text:hover{
+    text-decoration: none;
+    color: #FFF;
 }
