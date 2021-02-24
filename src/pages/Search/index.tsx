@@ -1,35 +1,47 @@
 import React, {useState} from 'react';
 import ButtonIcon from '../../core/components/Buttonicon';
-import { ResultSearch } from '../../core/types/ResultSearch';
 import './styles.scss';
 import ImageLoader from './components/ImageLoader';
 import InfoLoader from './components/InfoLoaders';
+import dayjs from 'dayjs';
 
 
 const Search = () => {
+
+    type ResultSearch = {
+        avatar_url: string
+        public_repos: string
+        followers: string
+        following: string
+        company: string
+        blog: string
+        location: string
+        created_at: string
+        html_url: string
+     }
+
     const [search, setSearch] = useState('');
-    const [userData, setUserData] = useState<ResultSearch>();
     const [isLoading, setIsLoading] = useState(false);
+    const [userData, setUserData] = useState<ResultSearch>();
+
+    const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(event.target.value);
+    }
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);
         fetch(`https://api.github.com/users/${search}`)
-            .then( response => {
-                if (!response.ok) {
-                    throw response
-                }
+            .then(response => {
                 return response.json()
             })
-            .then(userResponse => setUserData(userResponse))                                 
+            .then(userResponse => setUserData(userResponse))
             .finally(() => {
                 setIsLoading(false)
             })
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value);
-    }
+    const createdAt = dayjs(userData?.created_at).format("DD/MM/YYYY");
 
     return (
         <div className="container-page">
@@ -46,7 +58,7 @@ const Search = () => {
                             placeholder="Usuário Github"
                             required
                             value={search}
-                            onChange={handleChange}
+                            onChange={handleOnChange}
                         />
                         <div className="form-spacing">
                             <span className="form-spacing"> <ButtonIcon text="Encontrar" /> </span>
@@ -84,13 +96,9 @@ const Search = () => {
                                     <span className="public-repository-position">
                                         <h6 className="text-public-repository">Repositórios públicos: {userData.public_repos}</h6>
                                     </span>
-                                </div>
-                                <div>
                                     <span className="followers-position">
                                         <h6 className="text-followers">Seguidores: {userData.followers}</h6>
                                     </span>
-                                </div>
-                                <div>
                                     <span className="following-position">
                                         <h6 className="text-following">Seguindo: {userData.following}</h6>
                                     </span>
@@ -107,15 +115,14 @@ const Search = () => {
                                     <span className="local-position">
                                         <h6 className="text-local"><strong>Localidade:</strong> &nbsp; {userData.location}</h6>
                                     </span>
-                                    <span className="span7-position">
-                                        <h6 className="text-span7"><strong>Membro desde:</strong></h6>
+                                    <span className="member-position">
+                                        <h6 className="text-member"><strong>Membro desde:</strong> &nbsp; {createdAt}</h6>
                                     </span>
                                 </div>
                             </div>
                         )}
                 </div>
             )}
-
         </div>
     );
 }
